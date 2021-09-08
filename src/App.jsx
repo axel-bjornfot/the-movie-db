@@ -5,6 +5,7 @@ import Navigation from "./pages/partials/Navigation";
 import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
 import PopularMoviesPage from "./pages/PopularMoviesPage";
 import LatestMoviesPage from "./pages/LatestMoviesPage";
+import MoviePage from "./pages/MoviePage";
 
 function App() {
 	return (
@@ -27,6 +28,10 @@ function App() {
 
 					<Route exact path="/latest">
 						<LatestMoviesPage />
+					</Route>
+
+					<Route path="/movie/:id">
+						<MoviePage />
 					</Route>
 				</Switch>
 			</div>

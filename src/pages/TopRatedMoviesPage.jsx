@@ -4,10 +4,12 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import { useHistory } from "react-router";
 import { useQuery } from "react-query";
 import { getTopRatedMovies } from "../services/TMDB";
 
 const TopRatedMoviesPage = () => {
+	const history = useHistory();
 	const { data, error, isError, isLoading } = useQuery(
 		["top-rated-movies"],
 		() => getTopRatedMovies()
@@ -41,7 +43,14 @@ const TopRatedMoviesPage = () => {
 											{movie.vote_average}
 										</Card.Subtitle>
 										{/* <Card.Text>{movie.overview}</Card.Text> */}
-										<Button variant="primary">
+										<Button
+											variant="primary"
+											onClick={() => {
+												history.push(
+													`/movie/${movie.id}`
+												);
+											}}
+										>
 											Go somewhere
 										</Button>
 									</Card.Body>
