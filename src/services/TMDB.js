@@ -22,7 +22,9 @@ export const getPopularMovies = async () => {
 };
 
 export const getLatestMovies = async () => {
-	return get(`/latest/?api_key=${auth}&language=en-US&page=1`);
+	return get(
+		`https://api.themoviedb.org/3/movie/latest?api_key=${auth}&language=en-US`
+	);
 };
 
 export default {

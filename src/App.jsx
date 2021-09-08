@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import Navigation from "./pages/partials/Navigation";
 import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
 import PopularMoviesPage from "./pages/PopularMoviesPage";
+import LatestMoviesPage from "./pages/LatestMoviesPage";
 
 function App() {
 	return (
@@ -22,6 +23,10 @@ function App() {
 
 					<Route exact path="/popular">
 						<PopularMoviesPage />
+					</Route>
+
+					<Route exact path="/latest">
+						<LatestMoviesPage />
 					</Route>
 				</Switch>
 			</div>

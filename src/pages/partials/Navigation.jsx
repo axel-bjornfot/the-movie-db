@@ -20,6 +20,10 @@ const Navigation = () => {
 					<NavLink to="/popular" className="nav-link">
 						Popular Movies
 					</NavLink>
+
+					<NavLink to="/latest" className="nav-link">
+						Latest Movies
+					</NavLink>
 				</Nav>
 			</Container>
 		</Navbar>

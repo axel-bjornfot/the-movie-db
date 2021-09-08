@@ -9,7 +9,7 @@ import { getPopularMovies } from "../services/TMDB";
 
 const PopularMoviesPage = () => {
 	const { data, error, isError, isLoading } = useQuery(
-		["top-rated-movies"],
+		["popular-movies"],
 		() => getPopularMovies()
 	);
 
