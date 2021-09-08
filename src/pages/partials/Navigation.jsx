@@ -12,10 +12,13 @@ const Navigation = () => {
 					Movies DB
 				</Link>
 
-				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Nav className="ms-auto">
 					<NavLink to="/top-rated" className="nav-link">
 						Top Rated Movies
+					</NavLink>
+
+					<NavLink to="/popular" className="nav-link">
+						Popular Movies
 					</NavLink>
 				</Nav>
 			</Container>

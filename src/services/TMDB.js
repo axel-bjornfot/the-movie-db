@@ -17,6 +17,16 @@ export const getTopRatedMovies = async () => {
 	return get(`/top_rated/?api_key=${auth}&language=en-US&page=1`);
 };
 
+export const getPopularMovies = async () => {
+	return get(`/popular/?api_key=${auth}&language=en-US&page=1`);
+};
+
+export const getLatestMovies = async () => {
+	return get(`/latest/?api_key=${auth}&language=en-US&page=1`);
+};
+
 export default {
 	getTopRatedMovies,
+	getPopularMovies,
+	getLatestMovies,
 };
