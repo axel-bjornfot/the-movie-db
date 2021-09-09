@@ -29,9 +29,14 @@ export const getMovie = async (id) => {
 	return get(`/${id}?api_key=${auth}&language=en-US`);
 };
 
+export const getCast = async (id) => {
+	return get(`/${id}/credits?api_key=${auth}&language=en-US`);
+};
+
 export default {
 	getTopRatedMovies,
 	getPopularMovies,
 	getLatestMovies,
 	getMovie,
+	getCast,
 };

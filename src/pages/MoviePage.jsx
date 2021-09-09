@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
+import { useHistory } from "react-router";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { getMovie } from "../services/TMDB";
 
 const MoviePage = () => {
+	const history = useHistory();
 	const { id } = useParams();
 	const { data, error, isError, isLoading } = useQuery(["movie", id], () =>
 		getMovie(id)
@@ -17,21 +20,37 @@ const MoviePage = () => {
 	}, [data]);
 
 	return (
-		<Container className="py-3">
+		<>
 			{isLoading && <p className="my-3">Loading Movie...</p>}
 
 			{isError && <p className="my-3">error: {error}</p>}
 
 			{data?.results && (
-				<>
-					<Image
+				<Card className="bg-dark text-white">
+					<Card.Img
 						src={`https://image.tmdb.org/t/p/original/${data.results.backdrop_path}`}
-						fluid
+						alt="Card image"
 					/>
-					<h1>{data.results.title}</h1>
-				</>
+					<Card.ImgOverlay>
+						<Card.Title>{data.results.title}</Card.Title>
+						<Card.Text>{data.results.overview}</Card.Text>
+						<Card.Text>
+							Released: {data.results.release_date}
+						</Card.Text>
+						<Button
+							variant="dark"
+							onClick={() => {
+								history.push(
+									`/movie/credits/${data.results.id}`
+								);
+							}}
+						>
+							Cast
+						</Button>
+					</Card.ImgOverlay>
+				</Card>
 			)}
-		</Container>
+		</>
 	);
 };
 

@@ -44,14 +44,14 @@ const TopRatedMoviesPage = () => {
 										</Card.Subtitle>
 										{/* <Card.Text>{movie.overview}</Card.Text> */}
 										<Button
-											variant="primary"
+											variant="dark"
 											onClick={() => {
 												history.push(
 													`/movie/${movie.id}`
 												);
 											}}
 										>
-											Go somewhere
+											More info
 										</Button>
 									</Card.Body>
 								</Card>

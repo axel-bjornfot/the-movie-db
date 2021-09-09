@@ -6,6 +6,7 @@ import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
 import PopularMoviesPage from "./pages/PopularMoviesPage";
 import LatestMoviesPage from "./pages/LatestMoviesPage";
 import MoviePage from "./pages/MoviePage";
+import CastPage from "./pages/CastPage";
 
 function App() {
 	return (
@@ -32,6 +33,10 @@ function App() {
 
 					<Route path="/movie/:id">
 						<MoviePage />
+					</Route>
+
+					<Route path="/movie/credits/:id">
+						<CastPage />
 					</Route>
 				</Switch>
 			</div>
