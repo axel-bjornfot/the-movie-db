@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
-import { useHistory } from "react-router";
+import Image, { propTypes } from "react-bootstrap/Image";
+import { useHistory } from "react-router-dom";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { getMovie } from "../services/TMDB";
 
 const MoviePage = () => {
 	const history = useHistory();
-	const { id } = useParams();
+	let { id } = useParams();
 	const { data, error, isError, isLoading } = useQuery(["movie", id], () =>
 		getMovie(id)
 	);

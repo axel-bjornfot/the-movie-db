@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { getCast } from "../services/TMDB";
 
 const CastPage = () => {
-	const { id } = useParams();
+	let { id } = useParams();
 	const { data, error, isError, isLoading } = useQuery(["cast", id], () =>
 		getCast(id)
 	);
@@ -19,10 +16,9 @@ const CastPage = () => {
 
 	return (
 		<>
-			{isLoading && <p className="my-3">Loading Cast...</p>}
+			{isLoading && <p className="my-3">Loading Movie...</p>}
 			{isError && <p className="my-3">error: {error}</p>}
-			{data?.results && <Card className="bg-dark text-white"></Card>}
-			showing the id: {id}
+			{data?.results && <p>data is real</p>}
 		</>
 	);
 };
