@@ -7,6 +7,7 @@ import PopularMoviesPage from "./pages/PopularMoviesPage";
 import LatestMoviesPage from "./pages/LatestMoviesPage";
 import MoviePage from "./pages/MoviePage";
 import CastPage from "./pages/CastPage";
+import PersonPage from "./pages/PersonPage";
 
 function App() {
 	return (
@@ -29,6 +30,10 @@ function App() {
 
 					<Route exact path="/latest">
 						<LatestMoviesPage />
+					</Route>
+
+					<Route path="/person/:id">
+						<PersonPage />
 					</Route>
 
 					<Route path="/movie/:id/cast">

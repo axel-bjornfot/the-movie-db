@@ -22,7 +22,7 @@ const TopRatedMoviesPage = () => {
 	return (
 		<Container>
 			<h1 className="mt-4 mb-4">Top Rated Movies</h1>
-			<Row xs={1} md={2} lg={3} xl={4} className="g-4">
+			<Row xs={2} md={3} lg={4} xl={5} className="g-4">
 				{isLoading && <p className="my-3">Loading Movies...</p>}
 
 				{isError && <p className="my-3">({error})</p>}
@@ -31,7 +31,7 @@ const TopRatedMoviesPage = () => {
 					<>
 						{data.results.results.map((movie, i) => (
 							<Col key={i}>
-								<Card style={{ width: "18rem" }}>
+								<Card style={{ width: "12rem" }}>
 									<Card.Img
 										variant="top"
 										src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -40,7 +40,7 @@ const TopRatedMoviesPage = () => {
 									<Card.Body>
 										<Card.Title>{movie.title}</Card.Title>
 										<Card.Subtitle className="mb-2 text-muted">
-											{movie.vote_average}
+											Rating: {movie.vote_average}
 										</Card.Subtitle>
 										{/* <Card.Text>{movie.overview}</Card.Text> */}
 										<Button
