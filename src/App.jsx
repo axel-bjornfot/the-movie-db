@@ -31,12 +31,12 @@ function App() {
 						<LatestMoviesPage />
 					</Route>
 
-					<Route path="/movie/:id">
-						<MoviePage />
+					<Route path="/movie/:id/cast">
+						<CastPage />
 					</Route>
 
-					<Route path="/movie/credits/:id">
-						<CastPage />
+					<Route path="/movie/:id">
+						<MoviePage />
 					</Route>
 				</Switch>
 			</div>

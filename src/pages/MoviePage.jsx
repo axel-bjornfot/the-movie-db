@@ -40,9 +40,7 @@ const MoviePage = () => {
 						<Button
 							variant="dark"
 							onClick={() => {
-								history.push(
-									`/movie/credits/${data.results.id}`
-								);
+								history.push(`/movie/${data.results.id}/cast`);
 							}}
 						>
 							Cast
