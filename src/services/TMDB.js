@@ -38,7 +38,7 @@ export const getPerson = async (id) => {
 };
 
 export const getPersonCredits = async (id) => {
-	return get(`/person/${id}/credit?api_key=${auth}&language=en-US`);
+	return get(`/person/${id}/credits?api_key=${auth}&language=en-US`);
 };
 
 export default {
