@@ -1,11 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { ReactQueryDevtools } from 'react-query/devtools'
-import App from './App'
-import ThemeContextProvider from './contexts/ThemeContextProvider'
-import './App.scss'
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import App from "./App";
+import "./App.scss";
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -14,20 +13,16 @@ const queryClient = new QueryClient({
 			staleTime: 1000 * 10, // 10 seconds
 		},
 	},
-})
+});
 
 ReactDOM.render(
 	<React.StrictMode>
-
 		<QueryClientProvider client={queryClient}>
 			<BrowserRouter>
-				<ThemeContextProvider>
-					<App />
-					<ReactQueryDevtools initialIsOpen={false} />
-				</ThemeContextProvider>
+				<App />
+				<ReactQueryDevtools initialIsOpen={false} />
 			</BrowserRouter>
 		</QueryClientProvider>
-
 	</React.StrictMode>,
-	document.getElementById('root')
-)
+	document.getElementById("root")
+);
