@@ -8,6 +8,7 @@ import Image from "react-bootstrap/Image";
 import { useQueries, useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { getPerson, getPersonCredits } from "../services/TMDB";
+import PersonCredits from "../components/PersonCredits";
 
 const PersonPage = () => {
 	const { id } = useParams();
@@ -25,7 +26,7 @@ const PersonPage = () => {
 
 	useEffect(() => {
 		console.log("data is:", data);
-	}, [results]);
+	}, [data]);
 
 	return (
 		// <> </>
@@ -53,6 +54,7 @@ const PersonPage = () => {
 							<Card.Text>{data.results.biography}</Card.Text>
 						</Card.Body>
 					</Card>
+					<PersonCredits></PersonCredits>
 				</>
 			)}
 		</Container>

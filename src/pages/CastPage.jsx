@@ -33,14 +33,13 @@ const CastPage = () => {
 						{data.results.cast.map((actor, i) => (
 							<Col key={i}>
 								<Card style={{ width: "10rem" }}>
-									{actor.profile_path && (
+									{(actor.profile_path && (
 										<Card.Img
 											variant="top"
 											src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
 											alt="Profile of actor"
 										/>
-									)}
-									{!actor.profile_path && (
+									)) || (
 										<Card.Img
 											variant="top"
 											src={`https://cdn.pixabay.com/photo/2014/06/24/17/34/silhouette-376538_960_720.jpg`}
