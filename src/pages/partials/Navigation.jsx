@@ -21,6 +21,10 @@ const Navigation = () => {
 						Popular Movies
 					</NavLink>
 
+					<NavLink to="/genres" className="nav-link">
+						Genres
+					</NavLink>
+
 					<NavLink to="/latest" className="nav-link">
 						Latest Movies
 					</NavLink>
