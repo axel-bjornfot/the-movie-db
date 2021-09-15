@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
@@ -15,16 +15,12 @@ const MoviePage = () => {
 		getMovie(id)
 	);
 
-	useEffect(() => {
-		console.log("data is:", data);
-	}, [data]);
-
 	return (
 		<Container>
 			<Row>
-				{isLoading && <p className="my-3">Loading Movie...</p>}
+				{isLoading && <p className="my-3">Loading...</p>}
 
-				{isError && <p className="my-3">error: {error}</p>}
+				{isError && <p className="my-3">error: {error.message}</p>}
 
 				{data?.results && (
 					<>
@@ -47,7 +43,7 @@ const MoviePage = () => {
 									Released: {data.results.release_date}
 								</Card.Text>
 								<Button
-									variant="dark"
+									variant="primary"
 									onClick={() => {
 										history.push(
 											`/movie/${data.results.id}/cast`

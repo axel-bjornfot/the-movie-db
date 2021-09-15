@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { getPerson } from "../services/TMDB";
@@ -16,16 +14,11 @@ const PersonPage = () => {
 		getPerson(id)
 	);
 
-	useEffect(() => {
-		console.log("data is:", data);
-	}, [data]);
-
 	return (
-		// <> </>
 		<Container>
 			{isLoading && <p className="my-3">Loading...</p>}
 
-			{isError && <p className="my-3">({error})</p>}
+			{isError && <p className="my-3">error: {error.message}</p>}
 
 			{data?.results && (
 				<>
