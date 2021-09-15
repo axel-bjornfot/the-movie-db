@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -15,17 +15,13 @@ const PopularMoviesPage = () => {
 		() => getPopularMovies()
 	);
 
-	useEffect(() => {
-		console.log("data is:", data);
-	}, [data]);
-
 	return (
 		<Container>
 			<h1 className="text-light pt-4 pb-4">Top Rated Movies</h1>
 			<Row xs={2} md={3} lg={4} xl={5} className="g-4">
-				{isLoading && <p className="my-3">Loading Movies...</p>}
+				{isLoading && <p className="my-3">Loading...</p>}
 
-				{isError && <p className="my-3">({error})</p>}
+				{isError && <p className="my-3">error: {error.message}</p>}
 
 				{data?.results && (
 					<>

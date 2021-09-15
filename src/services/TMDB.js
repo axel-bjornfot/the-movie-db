@@ -14,13 +14,13 @@ const get = async (endpoint) => {
 
 export const getTopRatedMovies = async () => {
 	return get(
-		`/movie/top_rated/?api_key=${auth}&language=en-US&page=1&region=SE`
+		`/movie/top_rated?api_key=${auth}&language=en-US&page=1&region=SE`
 	);
 };
 
 export const getPopularMovies = async () => {
 	return get(
-		`/movie/popular/?api_key=${auth}&language=en-US&page=1&region=SE`
+		`/movie/popular?api_key=${auth}&language=en-US&page=1&region=SE`
 	);
 };
 

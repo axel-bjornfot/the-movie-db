@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
@@ -15,17 +15,13 @@ const CastPage = () => {
 		getCast(id)
 	);
 
-	useEffect(() => {
-		console.log("data is:", data);
-	}, [data]);
-
 	return (
 		<Container>
 			<h1 className="pt-4 pb-4 text-light">Cast</h1>
 			<Row xs={2} md={3} lg={4} xl={5} className="g-4">
 				{isLoading && <p className="my-3">Loading...</p>}
 
-				{isError && <p className="my-3">({error})</p>}
+				{isError && <p className="my-3">error: {error.message}</p>}
 
 				{data?.results && (
 					<>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
@@ -12,6 +12,7 @@ const GenrePage = () => {
 	const { id } = useParams();
 	const history = useHistory();
 	const [page, setPage] = useState(1);
+
 	const { data, error, isError, isLoading, isPreviousData } = useQuery(
 		["genre", id, page],
 		() => getGenre(id, page),
@@ -20,18 +21,13 @@ const GenrePage = () => {
 		}
 	);
 
-	useEffect(() => {
-		console.log("data is:", data);
-	}, [data]);
-
 	return (
-		// <> </>
 		<Container>
-			<h1 className="text-light pt-4 pb-4">placeholder</h1>
+			<h1 className="text-light pt-4 pb-4"></h1>
 			<Row xs={2} md={3} lg={4} xl={5} className="g-4">
-				{isLoading && <p className="my-3">Loading Movies...</p>}
+				{isLoading && <p className="my-3">Loading...</p>}
 
-				{isError && <p className="my-3">({error})</p>}
+				{isError && <p className="my-3">error: {error.message}</p>}
 
 				{data?.results && (
 					<>
@@ -48,7 +44,7 @@ const GenrePage = () => {
 										<Card.Subtitle className="mb-2 text-muted">
 											Rating: {movie.vote_average}
 										</Card.Subtitle>
-										{/* <Card.Text>{movie.overview}</Card.Text> */}
+
 										<Button
 											variant="primary"
 											onClick={() => {
