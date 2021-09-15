@@ -10,9 +10,8 @@ import { getMoviesNowPlaying } from "../services/TMDB";
 
 const MoviesNowPlaying = () => {
 	const history = useHistory();
-	const { data, error, isError, isLoading } = useQuery(
-		["Latest-movies"],
-		() => getMoviesNowPlaying()
+	const { data, error, isError, isLoading } = useQuery(["now-playing"], () =>
+		getMoviesNowPlaying()
 	);
 
 	useEffect(() => {
