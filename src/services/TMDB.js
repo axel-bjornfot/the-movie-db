@@ -49,7 +49,7 @@ export const getAllGenres = async () => {
 
 export const getGenre = async (id, page = null) => {
 	return get(
-		`https://api.themoviedb.org/3/discover/movie?api_key=${auth}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}&with_watch_monetization_types=flatrate`
+		`/discover/movie?api_key=${auth}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}&with_watch_monetization_types=flatrate`
 	);
 };
 

@@ -47,7 +47,7 @@ const MoviePage = () => {
 									Released: {data.results.release_date}
 								</Card.Text>
 								<Button
-									variant="dark"
+									variant="primary"
 									onClick={() => {
 										history.push(
 											`/movie/${data.results.id}/cast`

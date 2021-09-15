@@ -50,7 +50,7 @@ const CastPage = () => {
 										<Card.Title>{actor.name}</Card.Title>
 										<Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
 										<Button
-											variant="dark"
+											variant="primary"
 											onClick={() => {
 												history.push(
 													`/person/${actor.id}`
