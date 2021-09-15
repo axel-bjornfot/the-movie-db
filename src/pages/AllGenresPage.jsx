@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -6,13 +6,12 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { useHistory } from "react-router";
 import { useQuery } from "react-query";
-import { getPopularMovies } from "../services/TMDB";
+import { getAllGenres } from "../services/TMDB";
 
-const PopularMoviesPage = () => {
+const AllGenresPage = () => {
 	const history = useHistory();
-	const { data, error, isError, isLoading } = useQuery(
-		["popular-movies"],
-		() => getPopularMovies()
+	const { data, error, isError, isLoading } = useQuery(["genres"], () =>
+		getAllGenres()
 	);
 
 	useEffect(() => {
@@ -21,37 +20,29 @@ const PopularMoviesPage = () => {
 
 	return (
 		<Container>
-			<h1 className="text-light pt-4 pb-4">Top Rated Movies</h1>
-			<Row xs={2} md={3} lg={4} xl={5} className="g-4">
+			<h1 className="text-light pt-4 pb-4">Movie Genres</h1>
+			<Row xs={2} md={3} lg={3} xl={3} className="g-4">
 				{isLoading && <p className="my-3">Loading Movies...</p>}
 
 				{isError && <p className="my-3">({error})</p>}
 
 				{data?.results && (
 					<>
-						{data.results.results.map((movie, i) => (
+						{data.results.genres.map((genre, i) => (
 							<Col key={i}>
 								<Card text="light" bg="info">
-									<Card.Img
-										variant="top"
-										src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-										alt="movie poster"
-									/>
 									<Card.Body>
-										<Card.Title>{movie.title}</Card.Title>
-										<Card.Subtitle className="mb-2 text-muted">
-											Rating: {movie.vote_average}
-										</Card.Subtitle>
+										<Card.Title>{genre.name}</Card.Title>
 
 										<Button
 											variant="primary"
 											onClick={() => {
 												history.push(
-													`/movie/${movie.id}`
+													`/genres/${genre.id}`
 												);
 											}}
 										>
-											More info
+											Movies
 										</Button>
 									</Card.Body>
 								</Card>
@@ -64,4 +55,4 @@ const PopularMoviesPage = () => {
 	);
 };
 
-export default PopularMoviesPage;
+export default AllGenresPage;

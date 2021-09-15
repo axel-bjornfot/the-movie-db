@@ -1,18 +1,25 @@
-import React, { useEffect } from "react";
-import Container from "react-bootstrap/Container";
+import React, { useEffect, useState } from "react";
+import AllGenresPage from "./AllGenresPage";
 import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { useHistory } from "react-router";
+import Image from "react-bootstrap/Image";
 import { useQuery } from "react-query";
-import { getPopularMovies } from "../services/TMDB";
+import { useParams, useHistory } from "react-router-dom";
+import { getGenre } from "../services/TMDB";
 
-const PopularMoviesPage = () => {
+const GenrePage = () => {
+	const { id } = useParams();
 	const history = useHistory();
-	const { data, error, isError, isLoading } = useQuery(
-		["popular-movies"],
-		() => getPopularMovies()
+	const [page, setPage] = useState(1);
+	const { data, error, isError, isLoading, isPreviousData } = useQuery(
+		["genre", id, page],
+		() => getGenre(id, page),
+		{
+			keepPreviousData: true,
+		}
 	);
 
 	useEffect(() => {
@@ -20,8 +27,9 @@ const PopularMoviesPage = () => {
 	}, [data]);
 
 	return (
+		// <> </>
 		<Container>
-			<h1 className="text-light pt-4 pb-4">Top Rated Movies</h1>
+			<h1 className="text-light pt-4 pb-4">placeholder</h1>
 			<Row xs={2} md={3} lg={4} xl={5} className="g-4">
 				{isLoading && <p className="my-3">Loading Movies...</p>}
 
@@ -42,7 +50,7 @@ const PopularMoviesPage = () => {
 										<Card.Subtitle className="mb-2 text-muted">
 											Rating: {movie.vote_average}
 										</Card.Subtitle>
-
+										{/* <Card.Text>{movie.overview}</Card.Text> */}
 										<Button
 											variant="primary"
 											onClick={() => {
@@ -60,8 +68,31 @@ const PopularMoviesPage = () => {
 					</>
 				)}
 			</Row>
+			<div className="pagination d-flex justify-content-between align-items-center mt-4">
+				<Button
+					onClick={() =>
+						setPage((currentPage) => Math.max(currentPage - 1, 1))
+					}
+					disabled={page === 1}
+				>
+					Previous Page
+				</Button>
+
+				<span className="text-light">Current Page: {page}</span>
+
+				<Button
+					onClick={() => {
+						if (!isPreviousData && data.results.page) {
+							setPage((currentPage) => currentPage + 1);
+						}
+					}}
+					disabled={isPreviousData || !data?.results.page}
+				>
+					Next Page
+				</Button>
+			</div>
 		</Container>
 	);
 };
 
-export default PopularMoviesPage;
+export default GenrePage;

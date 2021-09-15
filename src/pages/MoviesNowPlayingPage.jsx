@@ -6,13 +6,13 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { useHistory } from "react-router";
 import { useQuery } from "react-query";
-import { getPopularMovies } from "../services/TMDB";
+import { getMoviesNowPlaying } from "../services/TMDB";
 
-const PopularMoviesPage = () => {
+const MoviesNowPlaying = () => {
 	const history = useHistory();
 	const { data, error, isError, isLoading } = useQuery(
-		["popular-movies"],
-		() => getPopularMovies()
+		["Latest-movies"],
+		() => getMoviesNowPlaying()
 	);
 
 	useEffect(() => {
@@ -64,4 +64,4 @@ const PopularMoviesPage = () => {
 	);
 };
 
-export default PopularMoviesPage;
+export default MoviesNowPlaying;

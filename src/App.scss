@@ -1,11 +1,27 @@
-@import "bootstrap/scss/bootstrap";
-
 #App {
 	position: relative;
+	background-color: #1b1116;
+	min-height: 100vh;
 }
 
-.fetching-spinner {
-	position: absolute;
-	right: 80px;
-	top: 40px;
-}
+$primary: #621818;
+$secondary: #fde1b8;
+$success: #e5f5aa;
+$info: #333132;
+$warning: #f3f0c8;
+$danger: #4b0909;
+$light: #f8f9fa;
+$dark: #343a40;
+
+$theme-colors: (
+	primary: $primary,
+	secondary: $secondary,
+	success: $success,
+	info: $info,
+	warning: $warning,
+	danger: $danger,
+	light: $light,
+	dark: $dark,
+);
+
+@import "bootstrap/scss/bootstrap.scss";
