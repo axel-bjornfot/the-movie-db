@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import AllGenresPage from "./AllGenresPage";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
 import { useQuery } from "react-query";
 import { useParams, useHistory } from "react-router-dom";
 import { getGenre } from "../services/TMDB";
