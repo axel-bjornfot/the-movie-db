@@ -20,8 +20,8 @@ const AllGenresPage = () => {
 
 	return (
 		<Container>
-			<h1 className="mt-4 mb-4">Movie Genres</h1>
-			<Row xs={2} md={3} lg={4} xl={5} className="g-4">
+			<h1 className="text-light pt-4 pb-4">Movie Genres</h1>
+			<Row xs={2} md={3} lg={3} xl={3} className="g-4">
 				{isLoading && <p className="my-3">Loading Movies...</p>}
 
 				{isError && <p className="my-3">({error})</p>}
@@ -30,13 +30,13 @@ const AllGenresPage = () => {
 					<>
 						{data.results.genres.map((genre, i) => (
 							<Col key={i}>
-								<Card style={{ width: "12rem" }}>
+								<Card text="light" bg="info">
 									<Card.Body>
 										<Card.Title>{genre.name}</Card.Title>
 
 										{/* <Card.Text>{movie.overview}</Card.Text> */}
 										<Button
-											variant="dark"
+											variant="primary"
 											onClick={() => {
 												history.push(
 													`/genres/${genre.id}`

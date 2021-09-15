@@ -32,7 +32,7 @@ const CastPage = () => {
 					<>
 						{data.results.cast.map((actor, i) => (
 							<Col key={i}>
-								<Card style={{ width: "10rem" }}>
+								<Card text="light" bg="info">
 									{(actor.profile_path && (
 										<Card.Img
 											variant="top"

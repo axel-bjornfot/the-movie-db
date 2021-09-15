@@ -19,8 +19,8 @@ const PopularMoviesPage = () => {
 
 	return (
 		<Container>
-			<h1 className="mt-4 mb-4">Top Rated Movies</h1>
-			<Row xs={1} md={2} lg={3} xl={4} className="g-4">
+			<h1 className="text-light pt-4 pb-4">Top Rated Movies</h1>
+			<Row xs={2} md={3} lg={4} xl={5} className="g-4">
 				{isLoading && <p className="my-3">Loading Movies...</p>}
 
 				{isError && <p className="my-3">({error})</p>}
@@ -29,7 +29,7 @@ const PopularMoviesPage = () => {
 					<>
 						{data.results.results.map((movie, i) => (
 							<Col key={i}>
-								<Card style={{ width: "18rem" }}>
+								<Card text="light" bg="info">
 									<Card.Img
 										variant="top"
 										src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

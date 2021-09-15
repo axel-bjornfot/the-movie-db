@@ -38,7 +38,7 @@ const PersonPage = () => {
 			{data?.results && (
 				<>
 					{data.results.profile_path && (
-						<Card style={{ width: "20em" }}>
+						<Card text="light" bg="info">
 							<Card.Img
 								src={`https://image.tmdb.org/t/p/w500/${data.results.profile_path}`}
 								alt="Card image"

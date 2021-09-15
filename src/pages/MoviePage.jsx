@@ -26,7 +26,7 @@ const MoviePage = () => {
 			{isError && <p className="my-3">error: {error}</p>}
 
 			{data?.results && (
-				<Card className="bg-dark text-white">
+				<Card text="light" bg="info">
 					<Card.Img
 						src={`https://image.tmdb.org/t/p/original/${data.results.backdrop_path}`}
 						alt="Card image"
