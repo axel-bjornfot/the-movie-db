@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import Navigation from "./pages/partials/Navigation";
 import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
 import PopularMoviesPage from "./pages/PopularMoviesPage";
-import LatestMoviesPage from "./pages/LatestMoviesPage";
+import MoviesNowPlayingPage from "./pages/MoviesNowPlayingPage";
 import MoviePage from "./pages/MoviePage";
 import CastPage from "./pages/CastPage";
 import PersonPage from "./pages/PersonPage";
@@ -30,8 +30,8 @@ function App() {
 						<PopularMoviesPage />
 					</Route>
 
-					<Route exact path="/latest">
-						<LatestMoviesPage />
+					<Route exact path="/now-playing">
+						<MoviesNowPlayingPage />
 					</Route>
 
 					<Route exact path="/genres">

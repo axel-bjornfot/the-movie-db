@@ -5,9 +5,9 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
-import { useQueries, useQuery } from "react-query";
+import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { getPerson, getPersonCredits } from "../services/TMDB";
+import { getPerson } from "../services/TMDB";
 
 const PersonPage = () => {
 	const { id } = useParams();
@@ -15,13 +15,6 @@ const PersonPage = () => {
 	const { data, error, isError, isLoading } = useQuery(["person", id], () =>
 		getPerson(id)
 	);
-
-	// const results = useQueries([
-	// 	{ getPerson(id) [("person", id)] },
-
-	// 	{ getPersonCredits: [(, id)] },
-	// 	,
-	// ]);
 
 	useEffect(() => {
 		console.log("data is:", data);

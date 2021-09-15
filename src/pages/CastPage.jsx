@@ -22,7 +22,7 @@ const CastPage = () => {
 
 	return (
 		<Container>
-			<h1 className="mt-4 mb-4">Cast</h1>
+			<h1 className="pt-4 pb-4 text-light">Cast</h1>
 			<Row xs={2} md={3} lg={4} xl={5} className="g-4">
 				{isLoading && <p className="my-3">Loading...</p>}
 

@@ -21,8 +21,8 @@ export const getPopularMovies = async () => {
 	return get(`/movie/popular/?api_key=${auth}&language=en-US&page=1`);
 };
 
-export const getLatestMovies = async () => {
-	return get(`/movie/latest?api_key=${auth}&language=en-US`);
+export const getMoviesNowPlaying = async () => {
+	return get(`/movie/now_playing?api_key=${auth}&language=en-US&region=SE`);
 };
 
 export const getMovie = async (id) => {
@@ -33,14 +33,11 @@ export const getCast = async (id) => {
 	return get(`/movie/${id}/credits?api_key=${auth}&language=en-US`);
 };
 
+//get person and credits
 export const getPerson = async (id) => {
 	return get(
 		`/person/${id}?api_key=${auth}&language=en-US&append_to_response=credits`
 	);
-};
-
-export const getPersonCredits = async (id) => {
-	return get(`/person/${id}/credits?api_key=${auth}&language=en-US`);
 };
 
 export const getAllGenres = async () => {
@@ -56,11 +53,10 @@ export const getGenre = async (id, page = null) => {
 export default {
 	getTopRatedMovies,
 	getPopularMovies,
-	getLatestMovies,
+	getMoviesNowPlaying,
 	getMovie,
 	getCast,
 	getPerson,
-	getPersonCredits,
 	getAllGenres,
 	getGenre,
 };

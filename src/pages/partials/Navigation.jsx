@@ -26,8 +26,8 @@ const Navigation = () => {
 							Genres
 						</NavLink>
 
-						<NavLink to="/latest" className="nav-link">
-							Latest Movies
+						<NavLink to="/now-playing" className="nav-link">
+							Now playing
 						</NavLink>
 					</Nav>
 				</Navbar.Collapse>
