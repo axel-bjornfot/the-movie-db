@@ -14,13 +14,13 @@ const get = async (endpoint) => {
 
 export const getTopRatedMovies = async () => {
 	return get(
-		`/movie/top_rated/?api_key=${auth}&language=en-US&page=1&region=SE`
+		`/movie/top_rated/?api_key=${auth}&language=en-US&page=1&:splat 200!`
 	);
 };
 
 export const getPopularMovies = async () => {
 	return get(
-		`/movie/popular/?api_key=${auth}&language=en-US&page=1&region=SE`
+		`/movie/popular/?api_key=${auth}&language=en-US&page=1:splat 200!`
 	);
 };
 
@@ -49,7 +49,7 @@ export const getAllGenres = async () => {
 
 export const getGenre = async (id, page = null) => {
 	return get(
-		`https://api.themoviedb.org/3/discover/movie?api_key=${auth}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}&with_watch_monetization_types=flatrate`
+		`/discover/movie?api_key=${auth}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}&with_watch_monetization_types=flatrate`
 	);
 };
 
