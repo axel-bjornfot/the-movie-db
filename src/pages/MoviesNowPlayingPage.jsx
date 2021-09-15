@@ -42,7 +42,7 @@ const MoviesNowPlaying = () => {
 										<Card.Subtitle className="mb-2 text-muted">
 											Rating: {movie.vote_average}
 										</Card.Subtitle>
-										{/* <Card.Text>{movie.overview}</Card.Text> */}
+
 										<Button
 											variant="primary"
 											onClick={() => {

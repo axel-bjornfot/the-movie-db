@@ -34,7 +34,6 @@ const AllGenresPage = () => {
 									<Card.Body>
 										<Card.Title>{genre.name}</Card.Title>
 
-										{/* <Card.Text>{movie.overview}</Card.Text> */}
 										<Button
 											variant="primary"
 											onClick={() => {
