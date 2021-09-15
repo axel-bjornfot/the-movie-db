@@ -14,7 +14,7 @@ const get = async (endpoint) => {
 
 export const getTopRatedMovies = async () => {
 	return get(
-		`/movie/top_rated/?api_key=${auth}&language=en-US&page=1&:splat 200!`
+		`https://api.themoviedb.org/3/movie/top_rated/?api_key=${auth}&language=en-US&page=1`
 	);
 };
 
