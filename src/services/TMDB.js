@@ -17,9 +17,7 @@ export const getTopRatedMovies = async () => {
 };
 
 export const getPopularMovies = async () => {
-	return get(
-		`/movie/popular/?api_key=${auth}&language=en-US&page=1:splat 200!`
-	);
+	return get(`/movie/popular/?api_key=${auth}&language=en-US&page=1`);
 };
 
 export const getMoviesNowPlaying = async () => {
