@@ -2,7 +2,6 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
 
-// axios.defaults.headers.common["23b3cee502f94de0e12fcb7cd6a87030"] = AUTH_TOKEN;
 const auth = "23b3cee502f94de0e12fcb7cd6a87030";
 
 const get = async (endpoint) => {
@@ -14,7 +13,9 @@ const get = async (endpoint) => {
 };
 
 export const getTopRatedMovies = async () => {
-	return get(`/movie/top_rated/?api_key=${auth}&language=en-US&page=1`);
+	return get(
+		`/movie/top_rated/?api_key=${auth}&language=en-US&page=1:splat 200!`
+	);
 };
 
 export const getPopularMovies = async () => {
