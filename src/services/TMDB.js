@@ -47,7 +47,7 @@ export const getAllGenres = async () => {
 	return get(`/genre/movie/list?api_key=${auth}&language=en-US`);
 };
 
-export const getGenre = async (id, page = null) => {
+export const getGenre = async (id, page) => {
 	return get(
 		`/discover/movie?api_key=${auth}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${id}&with_watch_monetization_types=flatrate`
 	);

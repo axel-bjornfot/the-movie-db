@@ -38,7 +38,7 @@ function App() {
 						<AllGenresPage />
 					</Route>
 
-					<Route exact path="/genres/:id">
+					<Route exact path="/genres/:id/:pageId">
 						<GenrePage />
 					</Route>
 

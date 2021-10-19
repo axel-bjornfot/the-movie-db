@@ -9,13 +9,13 @@ import { useParams, useHistory } from "react-router-dom";
 import { getGenre } from "../services/TMDB";
 
 const GenrePage = () => {
-	const { id } = useParams();
+	const { id, pageId } = useParams();
 	const history = useHistory();
 	const [page, setPage] = useState(1);
 
 	const { data, error, isError, isLoading, isPreviousData } = useQuery(
-		["genre", id, page],
-		() => getGenre(id, page),
+		["genre", id, pageId],
+		() => getGenre(id, pageId),
 		{
 			keepPreviousData: true,
 		}
@@ -64,9 +64,10 @@ const GenrePage = () => {
 			</Row>
 			<div className="pagination d-flex justify-content-between align-items-center mt-4">
 				<Button
-					onClick={() =>
-						setPage((currentPage) => Math.max(currentPage - 1, 1))
-					}
+					onClick={() => {
+						setPage((currentPage) => Math.max(currentPage - 1, 1));
+						history.push(`/genres/${id}/${page - 1}`);
+					}}
 					disabled={page === 1}
 				>
 					Previous Page
@@ -78,6 +79,7 @@ const GenrePage = () => {
 					onClick={() => {
 						if (!isPreviousData && data.results.page) {
 							setPage((currentPage) => currentPage + 1);
+							history.push(`/genres/${id}/${page + 1}`);
 						}
 					}}
 					disabled={isPreviousData || !data?.results.page}

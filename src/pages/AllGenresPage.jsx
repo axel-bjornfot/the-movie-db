@@ -34,7 +34,7 @@ const AllGenresPage = () => {
 											variant="primary"
 											onClick={() => {
 												history.push(
-													`/genres/${genre.id}`
+													`/genres/${genre.id}/1`
 												);
 											}}
 										>
